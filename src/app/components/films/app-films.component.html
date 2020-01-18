@@ -1,0 +1,32 @@
+<!-- <p class="heading" routerLink="/home">CSS Gallery</p> -->
+
+<!-- <div id="header">
+    <h1>CINEMANIA PRESENTS</h1>
+</div> -->
+<header id="header" style="margin-top: -60.5ox; opacity: 1;"></header>
+<div id="header_container">
+    <h2>CINEMANIA</h2>
+    <h1>Presents</h1>
+    <div class="clearfloat"></div>
+</div>
+
+<div style="margin: auto; width: 100%; text-align: center; padding: 20rem;">
+    <ng-template [ngIf]="movies.length > 0" [ngIfElse]="noMovies">
+        <ng-container >
+            <span *ngFor="let movie of movies" class="gallery-image" (click)="selectMovie(movie.title)" routerLink="/home/films/movie">
+                <div class="img-box">
+                <img src="{{ movie.image }}" alt="" />
+                <div class="transparent-box">
+                    <div class="caption">
+                    <p>{{movie.title}}</p>
+                    <p class="opacity-low">{{movie.categorie}}</p>
+                    </div>
+                </div> 
+                </div>
+            </span>
+        </ng-container>
+    </ng-template>
+</div>
+
+<ng-template #noMovies style="left: 50%; top: 50%;">Nema filmi brato ;)</ng-template>
+

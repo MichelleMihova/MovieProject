@@ -1,0 +1,38 @@
+<main id="main">
+    <div id="header_container" routerLink="/home">
+          <h1>CINEMANIA</h1>
+          <h2>PRESENTS</h2>
+    </div>
+    <section id="play-button">
+      <article id="moving-article">
+        <div class="slideshow-container">
+
+          <ng-template [ngIf]="lastMovies.length > 0" [ngIfElse]="noLastMovies">
+            <ng-container>
+              <div *ngFor="let movie of lastMovies;" class="mySlides fade">
+                <!-- <div class="mySlides fade"> -->
+                    <img width="420" height="345" src="{{ movie.image }}">
+                    <!-- <iframe class="videos" width="420" height="345" src="{{ movie.image }}"> </iframe> -->
+                  <div class="text">{{ movie.title }}</div>
+                <!-- </div> -->
+              </div>
+            </ng-container>
+
+            <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+            <a class="next" (click)="plusSlides(1)">&#10095;</a>
+            <div class="dot-container">
+              <span class="dot" (click)="currentSlide(0)"></span>
+              <span class="dot" (click)="currentSlide(1)"></span>
+              <span class="dot" (click)="currentSlide(2)"></span>
+            </div>
+          </ng-template>
+
+          <ng-template #noLastMovies>
+            <div class="mySlides fade">
+                <img width="420" height="345" src="https://homestaymatch.com/images/no-image-available.png">
+            </div>
+          </ng-template>
+        </div>
+      </article> 
+    </section>
+</main>
